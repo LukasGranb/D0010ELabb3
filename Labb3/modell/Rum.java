@@ -59,23 +59,13 @@ public class Rum {
 	// TODO: Skriv instansmetoden
 	//
 	// Gång gångenÅt(Väderstreck väderstreck) som
-	//
 	// returnerar den gång som leder från ett rum i riktning väderstreck. Om
 	// sådan gång saknas ska ett undantag kastas med lämpligt felmeddelande.
 
 	// TODO: Skrivklar metoden nedan som kopplar ihop två rum med en gång.
 
-//	public static void kopplaIhop(Rum från, Väderstreck riktningUtUrFrån,
-//			Rum till, Väderstreck riktningInITill) {
-//	}
-	public static void main(String[] args) {
-		// Skapa ett Rum-objekt med testdata
-		Rum rum = new Rum(Color.RED, 10, 5, 0, 0);  // Färg: Röd, bredd: 10, höjd: 5, övre vänstra hörn: (0, 0)
-
-		// Skriv ut värden från getter-metoderna för att verifiera
-		System.out.println("Golvfärg: " + rum.getFärg());
-		System.out.println("Bredd: " + rum.getBredd());
-		System.out.println("Höjd: " + rum.getHöjd());
-		System.out.println("Övre vänstra hörn: " + rum.getÖvPunkt());
+	public static void kopplaIhop(Rum från, Väderstreck riktningUtUrFrån,
+			Rum till, Väderstreck riktningInITill) {
+	}
 	}
 }

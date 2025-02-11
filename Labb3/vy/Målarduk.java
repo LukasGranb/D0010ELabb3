@@ -9,7 +9,7 @@ import labb3.modell.Väderstreck;
 import labb3.verktyg.Punkt;
 
 // TODO: Ändra nästa rad så att en Målarduk "är-en" JPanel.
-public class Målarduk {
+public class Målarduk extends JPanel {
 
 	private final Nivå enNivå;
 
