@@ -16,8 +16,10 @@ public class Målarduk extends JPanel {
 	public Målarduk(Nivå enNivå) {
 		this.enNivå = enNivå;
 		// TODO: Sätt bakgrundsfärgen på this till MARKFÄRG.
+		this.färg = MARKFÄRG;
 		// TODO: Anropa metoden setFocusable på this och med argumentet true.
 		// Detta behövs för att lyssnaren i programmet ska reagera.
+		setFocusable(true);
 	}
 
 	// TODO: Lätt till @Override på metoden nedan.
