@@ -48,6 +48,9 @@ public class Huvudprogram {
 		// TODO: Skapa en instans av klassen GUI och skicka med nivån ovan som
 		// argument. Man kan ha en referensvariabel som refererar till
 		// GUI-instansen men det är är inte nödvändigt.
+
+		new GUI(nivå);
+
 	}
 
 }

@@ -16,16 +16,18 @@ public class Målarduk extends JPanel {
 	public Målarduk(Nivå enNivå) {
 		this.enNivå = enNivå;
 		// TODO: Sätt bakgrundsfärgen på this till MARKFÄRG.
-		this.färg = MARKFÄRG;
+		this.setBackground(MARKFÄRG);
 		// TODO: Anropa metoden setFocusable på this och med argumentet true.
 		// Detta behövs för att lyssnaren i programmet ska reagera.
-		setFocusable(true);
+		this.setFocusable(true);
 	}
 
 	// TODO: Lätt till @Override på metoden nedan.
+	@Override
 	protected void paintComponent(Graphics g) {
 		// TODO Lägg till ett anrop till paintComponent i omedelbara
 		// överklassen (JPanel). Skicka med g som argument.
+		super.paintComponent(g);		//super anropar till överklassen vilken i detta fall är Jpanel
 
 		// TODO: Lägg till kod som ritar ut en grafisk vy av enNivå.
 		//
@@ -33,7 +35,7 @@ public class Målarduk extends JPanel {
 		// noga bilderna i labbinstruktionen för att få fram formlerna för
 		// bas- och pivotpunkternas koordinater. Använd ritmetoderna i klassen
 		// labb3.verktyg.Grafik. Anropa hjälpmetoderna från paintComponent.
-	}
+}
 
 	private void ritaRum(Graphics g, Rum ettRum) {
 
