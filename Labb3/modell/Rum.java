@@ -25,7 +25,6 @@ public class Rum {
 		this.övPunkt = new Punkt(övX, övY);
 
 
-
 	}
 
 	//--------------GETTERS-----------------\\
@@ -41,7 +40,7 @@ public class Rum {
 	}
 
 	public int getHöjd() {
-		//returnernar Höjden NEJ!
+		//returnernar Höjden
 		return this.höjd;
 	}
 

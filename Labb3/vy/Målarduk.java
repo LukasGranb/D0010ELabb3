@@ -5,11 +5,14 @@ import Labb3.modell.Nivå;
 import Labb3.modell.Rum;
 import Labb3.modell.Väderstreck;
 import Labb3.verktyg.Punkt;
+import Labb3.verktyg.Grafik;
 
 import javax.swing.*;
 import java.awt.*;
 
 import static Labb3.GlobalaKonstanter.MARKFÄRG;
+import static Labb3.GlobalaKonstanter.VÄGGFÄRG;
+import static Labb3.verktyg.Grafik.drawThickLine;
 
 // TODO: Ändra nästa rad så att en Målarduk "är-en" JPanel.
 public class Målarduk extends JPanel {
@@ -47,7 +50,9 @@ public class Målarduk extends JPanel {
 
 	private void ritaRum(Graphics g, Rum ettRum) {
 		g.setColor(ettRum.getFärg());
-		g.fillRect(ettRum.getÖvPunkt().x(), ettRum.getÖvPunkt().y(), getWidth(), getHeight());
+		g.fillRect(ettRum.getÖvPunkt().x(), ettRum.getÖvPunkt().y(), ettRum.getBredd(), ettRum.getHöjd());
+		g.setColor(VÄGGFÄRG);
+		drawThickLine(g, ettRum.getÖvPunkt(), (ettRum.getÖvPunkt() - ettRum.getHöjd() -ettRum.getBredd()), ettRum.getBredd(), VÄGGFÄRG);
 	}
 
 	private void ritaGångarFrånRum(Graphics g, Rum ettRum) {
