@@ -10,11 +10,11 @@ import Labb3.verktyg.Grafik;
 import javax.swing.*;
 import java.awt.*;
 
-import static Labb3.GlobalaKonstanter.MARKFÄRG;
-import static Labb3.GlobalaKonstanter.VÄGGFÄRG;
+import static Labb3.GlobalaKonstanter.*;
 import static Labb3.verktyg.Grafik.drawThickLine;
 
 // TODO: Ändra nästa rad så att en Målarduk "är-en" JPanel.
+@SuppressWarnings("NonAsciiCharacaters")
 public class Målarduk extends JPanel {
 
 	private final Nivå enNivå;
@@ -52,11 +52,12 @@ public class Målarduk extends JPanel {
 		g.setColor(ettRum.getFärg());
 		g.fillRect(ettRum.getÖvPunkt().x(), ettRum.getÖvPunkt().y(), ettRum.getBredd(), ettRum.getHöjd());
 		g.setColor(VÄGGFÄRG);
-		drawThickLine(g, ettRum.getÖvPunkt(), (ettRum.getÖvPunkt() - ettRum.getHöjd() -ettRum.getBredd()), ettRum.getBredd(), VÄGGFÄRG);
+		g.drawLine(ettRum.getÖvPunkt().x(), ettRum.getÖvPunkt().y(), ettRum.getÖvPunkt().x() - ettRum.getBredd() - ettRum.getHöjd(), ettRum.getÖvPunkt().y() - ettRum.getHöjd() - ettRum.getBredd());
 	}
 
 	private void ritaGångarFrånRum(Graphics g, Rum ettRum) {
 		for (Väderstreck utgångar: Väderstreck.values()){
+			paintComponent(g);
 
 		}
 	}

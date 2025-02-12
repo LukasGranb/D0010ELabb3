@@ -4,6 +4,7 @@ import Labb3.verktyg.Punkt;
 
 import java.awt.*;
 
+@SuppressWarnings("NonAsciiCharacaters")
 public class Rum {
 
 	// TODO: Lägg till tillståndsvariabler.
@@ -12,6 +13,7 @@ public class Rum {
 	private int bredd;
 	private int höjd;
 	private Punkt övPunkt;
+	private Gång[] gångar = new Gång[Väderstreck.values().length];
 
 	public Rum(Color golvfärg, int bredd, int höjd, int övX, int övY) {
 		// TODO: Kopiera parametrarna in i tillståndsvariablerna. (övX,övY) är
@@ -58,7 +60,12 @@ public class Rum {
 
 	// TODO: Skriv instansmetoden
 	//
-	// Gång gångenÅt(Väderstreck väderstreck) som
+	Gång gångenÅt(Väderstreck väderstreck)  {
+		if(gångar[väderstreck.index()] != null) {
+			return gångar[väderstreck.index()];
+		}
+		throw new IllegalArgumentException();
+	}
 	// returnerar den gång som leder från ett rum i riktning väderstreck. Om
 	// sådan gång saknas ska ett undantag kastas med lämpligt felmeddelande.
 
@@ -66,6 +73,9 @@ public class Rum {
 
 	public static void kopplaIhop(Rum från, Väderstreck riktningUtUrFrån,
 			Rum till, Väderstreck riktningInITill) {
+		Gång gång = new Gång(från, riktningUtUrFrån, till, riktningInITill);
+		från.gångar[riktningUtUrFrån.index()] = gång;
+		till.gångar[riktningInITill.index()] = gång;
 
 	}
 	}
