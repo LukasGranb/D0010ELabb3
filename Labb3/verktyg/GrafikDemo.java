@@ -1,12 +1,10 @@
 package Labb3.verktyg;
 
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Graphics;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
+import javax.swing.*;
+import java.awt.*;
 
-import static Labb3.verktyg.Grafik.*;
+import static Labb3.verktyg.Grafik.drawThickLine;
+import static Labb3.verktyg.Grafik.fillCircle;
 
 /**
  * @author Håkan Jonsson

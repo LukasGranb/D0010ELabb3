@@ -1,12 +1,15 @@
 package Labb3.vy;
 
-import java.awt.Graphics;
+import Labb3.modell.Gång;
+import Labb3.modell.Nivå;
+import Labb3.modell.Rum;
+import Labb3.modell.Väderstreck;
+import Labb3.verktyg.Punkt;
 
-import labb3.modell.Gång;
-import labb3.modell.Nivå;
-import labb3.modell.Rum;
-import labb3.modell.Väderstreck;
-import labb3.verktyg.Punkt;
+import javax.swing.*;
+import java.awt.*;
+
+import static Labb3.GlobalaKonstanter.MARKFÄRG;
 
 // TODO: Ändra nästa rad så att en Målarduk "är-en" JPanel.
 public class Målarduk extends JPanel {
@@ -30,19 +33,27 @@ public class Målarduk extends JPanel {
 		super.paintComponent(g);		//super anropar till överklassen vilken i detta fall är Jpanel
 
 		// TODO: Lägg till kod som ritar ut en grafisk vy av enNivå.
-		//
 		// För att underlätta finns hjälpmetoder som ska skrivas klara. Studera
 		// noga bilderna i labbinstruktionen för att få fram formlerna för
 		// bas- och pivotpunkternas koordinater. Använd ritmetoderna i klassen
 		// labb3.verktyg.Grafik. Anropa hjälpmetoderna från paintComponent.
+		for (Rum R: enNivå.getExisterandeRum()) {
+			ritaRum(g, R);
+		}
+
+
+
 }
 
 	private void ritaRum(Graphics g, Rum ettRum) {
-
+		g.setColor(ettRum.getFärg());
+		g.fillRect(ettRum.getÖvPunkt().x(), ettRum.getÖvPunkt().y(), getWidth(), getHeight());
 	}
 
 	private void ritaGångarFrånRum(Graphics g, Rum ettRum) {
+		for (Väderstreck utgångar: Väderstreck.values()){
 
+		}
 	}
 
 	private Punkt baspunkt(Rum ettRum, Väderstreck enRiktning) {

@@ -1,12 +1,12 @@
 package Labb3;
 
-import static Labb3.modell.Väderstreck.*;
+import Labb3.modell.Nivå;
+import Labb3.modell.Rum;
 
-import java.awt.Color;
+import java.awt.*;
 import java.util.ArrayList;
 
-import Labb3.modell.Rum;
-import Labb3.modell.*;
+import static Labb3.modell.Väderstreck.*;
 
 public class Huvudprogram {
 

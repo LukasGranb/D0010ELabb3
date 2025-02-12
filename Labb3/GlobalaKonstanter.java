@@ -1,6 +1,6 @@
 package Labb3;
 
-import java.awt.Color;
+import java.awt.*;
 
 /**
  * @author Håkan Jonsson

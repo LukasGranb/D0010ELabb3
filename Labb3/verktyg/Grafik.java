@@ -1,9 +1,6 @@
 package Labb3.verktyg;
 
-import java.awt.BasicStroke;
-import java.awt.Color;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
+import java.awt.*;
 
 /**
  * @author Håkan Jonsson

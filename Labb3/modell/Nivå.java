@@ -37,7 +37,7 @@ public class Nivå extends Observable {
 
 	//--------------GETTERS-----------------\\
 
-	public ArrayList<Rum> getRum() {
+	public ArrayList<Rum> getExisterandeRum() {
 		// Returnerar Samtliga rum
 		return this.existerandeRum;
 	}

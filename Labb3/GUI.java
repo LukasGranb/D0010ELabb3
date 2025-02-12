@@ -1,9 +1,13 @@
 package Labb3;
 
-import java.util.Observable;
-
+import Labb3.kontroll.Tangentbordslyssnare;
 import Labb3.modell.Nivå;
 import Labb3.vy.Målarduk;
+
+import javax.swing.*;
+import java.awt.*;
+import java.util.Observable;
+import java.util.Observer;
 
 // TODO: Klassen ska ärva klassen JFrame i standardbibliotekets paket
 // javax.swing och implementera gränssnittet Observer i paketet java.util.
@@ -15,7 +19,7 @@ public class GUI extends JFrame implements Observer {
 
 		// TODO: Anropa metoden setDefaultCloseOperation med konstanten
 		// JFrame.EXIT_ON_CLOSE.
-		this.setDefaultCloseOpertation(JFrame.EXIT_ON_CLOSE)
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 		// TODO: Gör så att enNivå observerar this (instansen av GUI som denna
 		// kod håller på att skapa.
@@ -33,7 +37,7 @@ public class GUI extends JFrame implements Observer {
 		// Annars går det också att dra till med en storlek och sen bara
 		// använda rum som säkert kan visas på målarduken.
 
-		målarduk.serPreferredSize(new Dimension(600, 400));
+		målarduk.setPreferredSize(new Dimension(600, 600));
 
 		// TODO: Lägg till en KeyListener på målardiken, dvs en instans av
 		// typen Tangentbordslyssnare. Notera att lyssnaren vill ha enNivå

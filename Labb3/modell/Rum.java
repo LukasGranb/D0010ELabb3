@@ -1,7 +1,8 @@
 package Labb3.modell;
 
-import java.awt.Color;
 import Labb3.verktyg.Punkt;
+
+import java.awt.*;
 
 public class Rum {
 
@@ -66,6 +67,7 @@ public class Rum {
 
 	public static void kopplaIhop(Rum från, Väderstreck riktningUtUrFrån,
 			Rum till, Väderstreck riktningInITill) {
+
 	}
 	}
-}
+
