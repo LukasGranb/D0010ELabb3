@@ -2,28 +2,24 @@ package Labb3.modell;
 
 public class Gång {
 
-	// TODO: Lägg till tillståndsvariabler för att hålla parametrarna till
-	// konstruktorn.
+	//Instansvariablar som beskriver gången mellan rum
 
-	Rum frånRum;
-	Väderstreck riktningFrån;
-	Väderstreck riktningTill;
-	Rum tillRum;
+	private Rum frånRum;
+	private Väderstreck riktningFrån;
+	private Väderstreck riktningTill;
+	private Rum tillRum;
 
-
+	//Konstruktor för vad som krävs för att skapa en gång mellan 2 rum
 
 	public Gång(Rum från, Väderstreck riktningUtUrFrån, Rum till,
 			Väderstreck riktningInITill) {
-		// TODO: Tilldela tillståndsvariablerna parametervärdena.
 		this.frånRum = från;
 		this.riktningFrån = riktningUtUrFrån;
 		this.riktningTill = riktningInITill;
 		this.tillRum = till;
-
 	}
 
-	// TODO: Lägg till instansmetoder som returnerar tillståndsvariablernas
-	// värden.
+	// ---------- GETTERS ------------ \\
 
 	public Rum getFrånRum() {
 		return frånRum;

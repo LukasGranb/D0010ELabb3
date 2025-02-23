@@ -1,65 +1,76 @@
 package Labb3.modell;
 
+import java.awt.*;
 import java.util.ArrayList;
 import java.util.Observable;
 
-// TODO: Gör så att klassen Nivå ärver Observable i paketet java.util.
 public class Nivå extends Observable {
-	// TODO: Lägg till tillståndsvariabler för att hålla reda på nivåns rum och
-	// i vilket rum som användaren "är".
+
+	//Instans variablar för Rummet som spelaren befinner sig i och en array med existerande rum som element.
 
 	private Rum nuvaranderum;
 	private ArrayList<Rum> existerandeRum;
 
+	/*
+	* Konstruktor för att skapa en nivå av exiterande rum som rum och nuvarande rum som startrum.
+	* Den kastar en error IllegalArgumentException ifall att rum överlappar eller om start rummet inte finns
+	 */
+
 	public Nivå(Rum startrum, ArrayList<Rum> rum) {
-		// TODO: Kopiera in startrum och rum in i tillståndsvariablerna.
 		this.nuvaranderum = startrum;
 		this.existerandeRum = rum;
 
-		// TODO: Kontrollera att startrum finns med i rum. Om inte, kasta
-		// undantag med lämpligt felmeddelande.
-
-		if(!rum.contains(nuvaranderum)) {
+		if (!rum.contains(nuvaranderum)) {
 			throw new IllegalArgumentException();
 		}
 
-		// TODO: Kontrollera att inga rum överlappar varandra. Om det ändå är
-		// fallet, kasta undantag med lämpligt felmeddelande.
+		for (int j = 0; j < existerandeRum.size(); j++) {
+			Rectangle rec = new Rectangle(
+					existerandeRum.get(j).getÖvPunkt().x(),
+					existerandeRum.get(j).getÖvPunkt().y(),
+					existerandeRum.get(j).getBredd(),
+					existerandeRum.get(j).getHöjd()
+			);
 
-		else {
+			for (int i = j + 1; i < existerandeRum.size(); i++) {
+				Rectangle rec2 = new Rectangle(
+						existerandeRum.get(i).getÖvPunkt().x(),
+						existerandeRum.get(i).getÖvPunkt().y(),
+						existerandeRum.get(i).getBredd(),
+						existerandeRum.get(i).getHöjd()
+				);
+
+				if (rec.intersects(rec2)) {
+					throw new IllegalArgumentException("Två rum får inte överlappa.");
+				}
+			}
 		}
-
-
 	}
 
-	// TODO: Skriv en instansmetod som returnerar alla rummen. Denna behöver
-	// Målarduk för att veta vilka rum som finns på nivån och som ska ritas ut.
+	/*
+ 	* Flyttar spelaren åt ett angivet väderstreck om det finns en gång i den riktningen.
+ 	* Om en gång finns, uppdateras nuvarande rum och observerare notifieras.
+ 	*/
+
+ public void hoppaÅt(Väderstreck väderstreck) {
+		if (getNuvaranderum().finnsUtgångÅt(väderstreck)) {
+			if (nuvaranderum == nuvaranderum.gångenÅt(väderstreck).getFrånRum()) {
+				nuvaranderum = nuvaranderum.gångenÅt(väderstreck).getTillRum();
+			} else {
+				nuvaranderum = nuvaranderum.gångenÅt(väderstreck).getFrånRum();
+			}
+			setChanged();
+			notifyObservers();
+		}
+	}
 
 	//--------------GETTERS-----------------\\
 
 	public ArrayList<Rum> getExisterandeRum() {
-		// Returnerar Samtliga rum
 		return this.existerandeRum;
 	}
 
-	// TODO Skriv en instansmetod som returnerar en referens till det rum som
-	// användaren "är i".
-
 	public Rum getNuvaranderum() {
-		// Returnerar Nuvaranderum
 		return this.nuvaranderum;
-	}
-
-	// TODO: Skriv klar instansmetoden hoppaÅt nedan så att den ändrar det rum
-	// som användaren "är i" om det är möjligt genom att följa en gång från
-	// rummet och i riktning väderstreck.
-	//
-	// Om väderstreck inte är en riktning i vilken det finns en gång, så ändras
-	// inte rummet användaren "är i" (och inte heller kastas undantag). (Denna
-	// metod använder kontrolldelen av programmet för att begära ett hopp till
-	// angränsande rum efter att användaren tryckt på en tangent.)
-
-	public void hoppaÅt(Väderstreck väderstreck) {
-
 	}
 }
